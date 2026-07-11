@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_OPTIONS='--experimental-vm-modules' jest",
+    "test:debug": "node --experimental-vm-modules --inspect-brk node_modules/.bin/jest --runInBand"
   },
   "repository": {
     "type": "git",
@@ -13,12 +14,15 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/shenba1712/coding-challenges/issues"
   },
   "homepage": "https://github.com/shenba1712/coding-challenges#readme",
-  "dependencies": {
-    "typescript": "^7.0.2"
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "jest": "^30.4.2",
+    "ts-jest": "^29.4.11",
+    "typescript": "^5.9.3"
   }
 }
