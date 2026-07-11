@@ -1,4 +1,4 @@
-function groupBy<T>(
+export function groupBy<T>(
     items: T[],
     keyFn: (item: T) => string
 ): Record<string, T[]> {
@@ -12,19 +12,19 @@ function groupBy<T>(
     }, {} as Record<string, T[]>);
 }
 
-function countBy<T>(
+export function countBy<T>(
     items: T[],
     keyFn: (item: T) => string
 ): Record<string, number> {
-    return items.reduce((acc, item) => {
+    const result = {} as Record<string, number>;
+    for (const item of items) {
         const keyword = keyFn(item);
-       // acc[keyword] = !acc[keyword] ? 1 : acc[keyword] + 1; -> yet another way to increment
-        acc[keyword] = (acc[keyword] || 0) + 1;
-        return acc;
-    }, {} as Record<string, number>);
+        result[keyword] = (result[keyword] || 0) + 1;
+    }
+    return result;
 }
 
-function sortBy<T>(
+export function sortBy<T>(
     items: T[],
     keyFn: (item: T) => string | number,
     direction: 'asc' | 'desc' = 'asc'
@@ -37,7 +37,7 @@ function sortBy<T>(
     }
 
     return [...items].sort((a, b) => {
-        if (keyFn(a) === 'string') {
+        if (typeof keyFn(a) === 'string') {
             return (keyFn(a).toString().localeCompare(keyFn(b).toString())) * dir; // * -1 would be desc
         } else {
             if (keyFn(a) > keyFn(b)) return 1 * dir;
