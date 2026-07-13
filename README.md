@@ -30,9 +30,10 @@ npm run test:debug -- path/to/file.test.ts   # a single file
 
 Each challenge lives in `src/` as a source file paired with its own `*.test.ts` file.
 
-| Challenge | Source | Description |
-|---|---|---|
+| Challenge            | Source                                             | Description                                                                     |
+|----------------------|----------------------------------------------------|---------------------------------------------------------------------------------|
 | Group / Count / Sort | [src/group-count-sort.ts](src/group-count-sort.ts) | Generic `groupBy`, `countBy`, and `sortBy` helpers keyed by a selector function |
+| Pick / Omit          | [src/pick-omit.ts](src/pick-omit.ts)               | Generic `pick` and `omit`helpers keyed by a selector function    |
 
 ## Tech stack
 
