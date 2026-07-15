@@ -1,3 +1,4 @@
+import {describe, expect, it} from "vitest";
 import {pick, omit} from "./pick-omit.js";
 
 const flag: unique symbol = Symbol('flag');
